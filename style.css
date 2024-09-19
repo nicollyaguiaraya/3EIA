@@ -1,0 +1,18 @@
+:root{
+    --cor-fundo:#282634;
+    --cor-principal:#269199;
+    --cor-secundaria:#58afb8;
+    --cor-destaque:#bc1953;
+    --cor-texto:#c1a2a0;
+}
+bady{
+    background-color: var(--cor-fundo);
+    display:flex ;
+    align-items: center;
+    justify-content: center;
+    min: heinght 100px;
+    
+
+
+}
+    
