@@ -1,18 +1,15 @@
 :root{
-    --cor-fundo:#282634;
-    --cor-principal:#269199;
-    --cor-secundaria:#58afb8;
-    --cor-destaque:#bc1953;
-    --cor-texto:#c1a2a0;
+    --cor-fundo: #01080E;
+    --cor-principal: #0b0d20;
+    --cor-secundaria: #212333;
+    --cor-destaque: #2dbefd;
+    --cor-texto: #D7F9FF;
 }
-bady{
+body{
     background-color: var(--cor-fundo);
-    display:flex ;
+    color: var(--cor-texto);
+    display: flex;
     align-items: center;
     justify-content: center;
-    min: heinght 100px;
-    
-
-
+    min-height: 100vh;
 }
-    
