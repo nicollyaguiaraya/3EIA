@@ -19,11 +19,11 @@ const perguntas = [//abre a lista de objetos (itens)
     {
         enunciado: "voce utiliza o IA",
         alternativas: [{
-            texto: "sim",
+            texto: "talvez",
             afirmação: "Afirmação da alternativa 1"
         },
         {
-            texto:"Talvez",
+            texto:"quem sabe",
             afirmação:"Afirmação da alternativa 2"
         }
         ]
@@ -65,12 +65,14 @@ function mostraAlternativas() {}
     }
 function respostaselecionadas(opçaoselecionada){
     const afirmaçoes = opçaoselecionada.afirmação;
-    respostas = afirmaçoes;
+    respostas += afirmaçoes +"";
     posicao++;
     mostraPergunta();
         }
  function mostraresultado(){
     caixaPergunta.textContent="daqui a 20 anos..."
+    textoresultado.textContent=resostas;
+    caixaAlternativa.textContent="";
  }
 mostraPergunta();
 
