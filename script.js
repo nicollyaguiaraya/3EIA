@@ -2,77 +2,69 @@ const caixaPrincipal = document.querySelector('.caixa-principal');
 const caixaPergunta = document.querySelector('.caixa-pergunta');
 const caixaAlternativa = document.querySelector('.caixa-alternativa');
 const caixaResultado = document.querySelector('.caixa-resultado');
+const  textoResultado = Document.querySelector(".texto-resultado")
+    
+const perguntas = [     //serve para abrir lista de perguntas
+    {   //abre o objeto das perguntas
+        enunciado: "o dia esta bonito hoje",
+        alternativas: [
+            {texto: "Sim, eu gosto",
+            afirmação:"sim dia esta bonito hoje"}, 
 
-const perguntas = [//abre a lista de objetos (itens)
-    {//abre o item
-        enunciado: "Você gosta da Inteligência Artificial?",
-        alternativas: [{
-            texto: "Sim",
-            afirmação: "Afirmação da alternativa 1"
-        },
-        {
-            texto: "Não",
-            afirmação: "Afirmação da alternativa"
-        }
-        ]
+            {texto: "Não, não gosto",
+            afirmação:"Não o dia nao esta bonito hoje"}]
     },
-    {
-        enunciado: "voce utiliza o IA",
-        alternativas: [{
-            texto: "talvez",
-            afirmação: "Afirmação da alternativa 1"
-        },
-        {
-            texto:"quem sabe",
-            afirmação:"Afirmação da alternativa 2"
-        }
-        ]
+    { 
+        enunciado: "esta sol hoje",
+        alternativas: [
+            {texto: "Sim",
+            afirmação:"esta sol hoje"}, 
+                
+            {texto: "Não",
+            afirmação:"nao esta sol hojes"}]
     },
-    {
-        enunciado: "o IA e util para voce",
-        alternativas: [{
-            texto: "Sim",
-            afirmação: "Afirmação da alternativa 1"
-        },
-        {
-            texto: "Não",
-            afirmação: "Afirmação da alternativa"
-        }
-        ]
-    }
+    { 
+        enunciado: "esta calor hoje",
+        alternativas: [
+            {texto: "Sim",
+            afirmação:"Sim,esta calor hoje"}, 
+                
+            {texto: "Não",
+            afirmação:"nao esta calor hoje"}]
+    },
 ]
 let posicao = 0;
 let perguntaAtual;
-let resostas ="";
+let respostas = "";
 
 
 function mostraPergunta() {
-    if (posicao>=perguntaAtual.length){
-    mostraresultado();
-    return;
+    if (posicao>=perguntas.length){
+        mostraResultado();
+        return;
     }
     perguntaAtual = perguntas[posicao];
     caixaPergunta.textContent = perguntaAtual.enunciado;
-    caixaAlternativa.textContent=" ";
+    caixaAlternativa.textContent = " ";
     mostraAlternativas();
 }
-function mostraAlternativas() {}
+function mostraAlternativas() {
     for (const alternativa of perguntaAtual.alternativas) {
         const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa.texto;
-        botaoAlternativas.addEventListener("click", ()=> respostaselecionadas(alternativa));
+        botaoAlternativas.addEventListener("click",  () => respostasSelecionadas(alternativa));
         caixaAlternativa.appendChild(botaoAlternativas);
     }
-function respostaselecionadas(opçaoselecionada){
-    const afirmaçoes = opçaoselecionada.afirmação;
-    respostas += afirmaçoes +"";
+}
+function respostasSelecionadas(opcaoSelecionada){
+    const afirmacoes = opcaoSelecionada.afirmação;
+    respostas += afirmacoes + " ";
     posicao++;
     mostraPergunta();
-        }
- function mostraresultado(){
-    caixaPergunta.textContent="daqui a 20 anos..."
-    textoresultado.textContent=resostas;
-    caixaAlternativa.textContent="";
- }
+}
+function mostraResultado(){
+    caixaPergunta.textContent = "Confira suas respostas: ";
+    textoResultado.textContent = respostas; 
+    caixaAlternativa.textContent = "";
+}
 mostraPergunta();
-
